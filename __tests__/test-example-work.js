@@ -24,8 +24,8 @@ const myWork = [
 describe("ExampleWork component", () => {
     let component = shallow(<ExampleWork work={myWork}/>);
 
-    it("Should be a 'section' element", () => {
-        expect(component.type()).toEqual('section');
+    it("Should be a 'span' element", () => {
+        expect(component.type()).toEqual('span');
     });
 
     it("Should contain as many children as there are work examples", () => {

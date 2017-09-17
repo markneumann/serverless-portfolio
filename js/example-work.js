@@ -1,18 +1,33 @@
 import React from 'react';
+import ExampleWorkModal from './example-work-modal';
 
 class ExampleWork extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            'modalOpen': false,
+            'selectedExample': this.props.work[0]
+        };
+    }
+
     render() {
         return (
-            <section className="section section--alignCentered section--description">
+            <span>
+                <section className="section section--alignCentered section--description">
 
-                { this.props.work.map( (example, idx) => {
-                    return (
-                        <ExampleWorkBubble example={example} key={idx} />
-                    )
-                  })
-                }
+                    { this.props.work.map( (example, idx) => {
+                        return (
+                            <ExampleWorkBubble example={example} key={idx} />
+                        )
+                      })
+                    }
 
-            </section>
+                </section>
+
+                <ExampleWorkModal example={this.state.selectedExample}
+                    open={this.state.modal}/>
+            </span>
          )
     }
 }
